@@ -1,7 +1,7 @@
-/* 그리운 소복희체 (폰트 파일·주소는 받는 대로 넣어요) */
+/* 몽글 야미요미체 (MongxYamiyomi, 웹 임베딩 허용) */
 @font-face {
-  font-family: "GriunSobokhee";
-  src: local("그리운 소복희체"), local("Griun Sobokhee");
+  font-family: "MongxYamiyomi";
+  src: url("fonts/mongx-yamiyomi.ttf") format("truetype");
   font-display: swap;
 }
 
@@ -31,7 +31,7 @@
   --wall: #2f7a55;
   --dirt: #e9c79f;
 
-  --font: "GriunSobokhee", "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
+  --font: "MongxYamiyomi", "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
   --tracking: -0.03em;
 
   /* 손으로 그린 듯 삐뚤빼뚤한 모서리 */
