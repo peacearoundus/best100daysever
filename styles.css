@@ -1,0 +1,1220 @@
+/* 그리운 소복희체 (폰트 파일·주소는 받는 대로 넣어요) */
+@font-face {
+  font-family: "GriunSobokhee";
+  src: local("그리운 소복희체"), local("Griun Sobokhee");
+  font-display: swap;
+}
+
+:root {
+  /* 색 */
+  --ink: #2b3553;
+  --ink-2: #56607c;
+  --ink-3: #8b93a8;
+  --line: #2b3553;
+  --paper: #fffcf3;
+  --paper-2: #fbf4e2;
+
+  --blue: #3d7fe6;
+  --blue-deep: #245cc0;
+  --blue-soft: #dceaff;
+  --green: #3fb37f;
+  --green-soft: #d6f3e3;
+  --green-ink: #1d7a50;
+  --gold: #f2b400;
+  --gold-soft: #fff0bd;
+  --red: #e5485f;
+
+  /* 야구장 */
+  --sky: #d3e9fb;
+  --grass: #a7da9f;
+  --grass-alt: #9dd396;
+  --wall: #2f7a55;
+  --dirt: #e9c79f;
+
+  --font: "GriunSobokhee", "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
+  --tracking: -0.03em;
+
+  /* 손으로 그린 듯 삐뚤빼뚤한 모서리 */
+  --wobble-1: 22px 30px 26px 34px / 30px 22px 34px 24px;
+  --wobble-2: 30px 20px 32px 24px / 22px 32px 24px 30px;
+  --wobble-pill: 26px 22px 24px 20px / 20px 24px 22px 26px;
+
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  /* 손그림 이미지: 날짜 동그라미, 밑줄, 잔디 결 */
+  --day-memory: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cpath d='M39.0 19.2 Q40.7 24.0 39.7 29.4 Q38.8 34.7 34.2 38.0 Q29.6 41.2 24.2 40.7 Q18.8 40.1 14.3 37.2 Q9.9 34.3 8.2 29.1 Q6.6 24.0 8.1 18.8 Q9.6 13.5 14.0 10.1 Q18.4 6.8 23.8 7.5 Q29.1 8.2 33.2 11.3 Q37.3 14.3 39.0 19.2 Z' fill='%23c3efd6' stroke='%23218a5a' stroke-width='2.8' stroke-linejoin='round'/%3E%3C/svg%3E");
+  --day-memory-hover: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cpath d='M39.0 19.2 Q40.7 24.0 39.7 29.4 Q38.8 34.7 34.2 38.0 Q29.6 41.2 24.2 40.7 Q18.8 40.1 14.3 37.2 Q9.9 34.3 8.2 29.1 Q6.6 24.0 8.1 18.8 Q9.6 13.5 14.0 10.1 Q18.4 6.8 23.8 7.5 Q29.1 8.2 33.2 11.3 Q37.3 14.3 39.0 19.2 Z' fill='%23a5e5c2' stroke='%23218a5a' stroke-width='2.8' stroke-linejoin='round'/%3E%3C/svg%3E");
+  --day-selected: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cpath d='M40.1 18.8 Q41.8 24.0 40.2 29.3 Q38.6 34.6 34.1 37.9 Q29.6 41.3 23.9 41.4 Q18.3 41.6 13.9 38.1 Q9.4 34.6 7.5 29.3 Q5.6 24.0 8.1 19.2 Q10.7 14.3 14.6 10.9 Q18.6 7.4 24.2 6.9 Q29.7 6.4 34.1 10.0 Q38.4 13.5 40.1 18.8 Z' fill='%233d7fe6' stroke='%231b3f86' stroke-width='3' stroke-linejoin='round'/%3E%3C/svg%3E");
+  --day-hundred: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cpath d='M39.9 18.8 Q41.4 24.0 39.7 29.1 Q37.9 34.1 33.5 37.0 Q29.2 39.9 23.8 40.6 Q18.3 41.4 14.5 37.5 Q10.7 33.6 8.6 28.8 Q6.5 24.0 7.8 18.6 Q9.1 13.2 14.0 10.7 Q18.9 8.2 24.2 7.7 Q29.4 7.2 33.9 10.4 Q38.4 13.6 39.9 18.8 Z' fill='%23ffd866' stroke='%239a6a00' stroke-width='2.8' stroke-linejoin='round'/%3E%3C/svg%3E");
+  --day-today: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cpath d='M39.2 19.1 Q41.0 24.0 39.7 29.3 Q38.5 34.5 34.0 37.8 Q29.5 41.0 23.9 41.2 Q18.4 41.4 14.4 37.6 Q10.4 33.9 8.7 28.9 Q7.1 24.0 8.8 19.1 Q10.5 14.2 14.6 11.1 Q18.8 7.9 24.2 7.4 Q29.6 6.9 33.5 10.5 Q37.5 14.2 39.2 19.1 Z' fill='none' stroke='%233d7fe6' stroke-width='3' stroke-linejoin='round'/%3E%3C/svg%3E");
+  --swash-gold: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 28' preserveAspectRatio='none'%3E%3Cpath d='M4 14.3 Q60 11.8 110 14.3 T196 13.0' fill='none' stroke='%23ffd45c' stroke-width='16' stroke-linecap='round'/%3E%3C/svg%3E");
+  --swash-mint: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 28' preserveAspectRatio='none'%3E%3Cpath d='M4 14.0 Q60 9.4 110 13.8 T196 13.4' fill='none' stroke='%23aee8c9' stroke-width='16' stroke-linecap='round'/%3E%3C/svg%3E");
+  --grass-blades: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cpath d='M54.9 69.3 q0.8 -4 -0.1 -7.5 M69.4 29.6 q0.0 -4 0.5 -8.4 M16.2 42.2 q-0.8 -4 1.2 -8.1 M10.5 114.1 q0.9 -4 0.6 -7.8 M23.0 11.6 q0.1 -4 -1.8 -6.6 M32.1 13.2 q-0.1 -4 -0.2 -8.5 M62.1 77.9 q-0.0 -4 0.6 -7.4 M36.0 115.8 q1.0 -4 1.4 -8.1 M40.0 34.3 q-0.4 -4 -1.7 -8.3 M49.2 99.7 q-0.2 -4 1.8 -8.5 M6.1 32.2 q0.8 -4 -0.1 -8.9 M48.9 17.7 q0.3 -4 1.1 -6.8 M15.4 45.3 q0.9 -4 1.0 -6.4 M32.6 20.7 q-0.9 -4 1.2 -6.5 ' fill='none' stroke='%2378bd76' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  min-height: 100%;
+  background-color: var(--grass);
+  background-image: var(--grass-blades),
+    repeating-linear-gradient(90deg, var(--grass) 0 56px, var(--grass-alt) 56px 112px);
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.sprite {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: clip;
+  font-family: var(--font);
+  font-weight: 400;
+  font-synthesis: none;
+  letter-spacing: var(--tracking);
+  color: var(--ink);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+p,
+dl,
+dd {
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 400;
+}
+
+button {
+  font: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+}
+
+button:focus-visible {
+  outline: 2.5px dashed var(--blue);
+  outline-offset: 3px;
+}
+
+.eyebrow {
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+  color: var(--ink-3);
+}
+
+/* ───────────── 첫 화면 ───────────── */
+
+.hero {
+  position: relative;
+  text-align: center;
+}
+
+.hero__sky {
+  position: relative;
+  padding-top: 52px;
+  background-color: var(--sky);
+  background-image: linear-gradient(180deg, #e8f4fd 0%, var(--sky) 100%);
+  overflow: hidden;
+}
+
+.hero__copy {
+  position: relative;
+  z-index: 1;
+  padding: 0 20px;
+}
+
+.eyebrow--sky {
+  display: inline-block;
+  margin-bottom: 14px;
+  padding: 4px 14px 5px;
+  border: 2.5px solid var(--line);
+  border-radius: var(--wobble-pill);
+  background: var(--paper);
+  box-shadow: 2px 3px 0 var(--line);
+  color: var(--blue-deep);
+  letter-spacing: 0.01em;
+  transform: rotate(-1.5deg);
+}
+
+.hero__title {
+  max-width: 11em;
+  margin: 0 auto;
+  font-size: clamp(2.1rem, 8.8vw, 3.7rem);
+  line-height: 1.25;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+  word-break: keep-all;
+  text-wrap: balance;
+}
+
+/* "100일"에 노란 펜으로 쓱 그은 밑줄 */
+.hero__num {
+  padding: 0 0.08em;
+  color: var(--blue-deep);
+  background: var(--swash-gold) no-repeat 0 88% / 100% 0.48em;
+}
+
+/* 구름 */
+.clouds {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.cloud {
+  position: absolute;
+  width: 124px;
+  overflow: visible;
+  animation: drift 12s ease-in-out infinite alternate;
+}
+
+.cloud--1 {
+  top: 22px;
+  left: -36px;
+}
+
+.cloud--2 {
+  top: 138px;
+  right: -40px;
+  width: 100px;
+  animation-duration: 15s;
+}
+
+.cloud--3 {
+  top: 222px;
+  left: 8%;
+  width: 70px;
+  opacity: 0.85;
+  animation-direction: alternate-reverse;
+}
+
+/* 야구장 */
+.park {
+  position: relative;
+  margin-top: 74px;
+}
+
+.tower {
+  position: absolute;
+  bottom: 100%;
+  width: 36px;
+  margin-bottom: -4px;
+}
+
+.tower--left {
+  left: 6%;
+}
+
+.tower--right {
+  right: 6%;
+}
+
+.park__stands {
+  height: 50px;
+  border-top: 3px solid var(--line);
+  background-color: #a9cbe8;
+  background-image:
+    repeating-linear-gradient(180deg, transparent 0 11px, rgba(255, 255, 255, 0.5) 11px 13px),
+    radial-gradient(circle, rgba(255, 255, 255, 0.9) 2.2px, transparent 2.9px),
+    radial-gradient(circle, rgba(255, 228, 140, 0.95) 2.2px, transparent 2.9px);
+  background-size: 100% 13px, 26px 13px, 26px 13px;
+  background-position: 0 0, 4px 0, 17px 6px;
+}
+
+.park__wall {
+  position: relative;
+  height: 40px;
+  border-top: 4px solid var(--gold);
+  border-bottom: 8px solid var(--dirt);
+  box-shadow: 0 -3px 0 var(--line), inset 0 -3px 0 var(--line), 0 3px 0 var(--line);
+  background-color: var(--wall);
+}
+
+.park__marker {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%) rotate(-3deg);
+  font-size: 1rem;
+  color: #ffe27a;
+}
+
+/* 캐릭터 */
+.buddies {
+  position: relative;
+  display: block;
+  width: min(300px, 82vw);
+  margin: -112px auto 0;
+  overflow: visible;
+}
+
+/* 캐릭터는 연회색 연필 선으로 부드럽게 그려요 */
+.pen {
+  stroke: #8d8892;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.buddy {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: bob 2.6s var(--ease) infinite;
+}
+
+.buddy--raccoon {
+  animation-delay: 0.4s;
+}
+
+.clover {
+  fill: #a9dcaf;
+  stroke: #6fa877;
+  stroke-width: 1.4;
+  stroke-linejoin: round;
+}
+
+/* 너구리 꼬리는 얼굴 뒤에서 살랑살랑 */
+.tail {
+  transform-box: fill-box;
+  transform-origin: 0% 100%;
+  animation: wag 1.4s ease-in-out infinite alternate;
+}
+
+.ball {
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+  animation: toss 2s ease-in-out infinite;
+}
+
+/* 전광판 */
+.board {
+  position: relative;
+  width: min(100% - 32px, 560px);
+  margin: 18px auto 0;
+  padding: 16px 18px 14px;
+  border: 3px solid var(--line);
+  border-radius: var(--wobble-1);
+  background-color: #1f3556;
+  box-shadow: 5px 6px 0 var(--line);
+  color: #fff;
+  transform: rotate(-0.6deg);
+}
+
+.board__stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.board__stat {
+  display: grid;
+  gap: 2px;
+  padding: 2px 6px;
+}
+
+.board__stat + .board__stat {
+  border-left: 2.5px dashed rgba(255, 255, 255, 0.3);
+}
+
+.board__stat dt {
+  font-size: 0.8rem;
+  color: #b4c6dc;
+}
+
+.board__stat dd {
+  font-size: 1.5rem;
+  line-height: 1.2;
+  color: #ffe27a;
+  font-variant-numeric: tabular-nums;
+}
+
+.board__progress {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.progress {
+  flex: 1;
+  height: 14px;
+  padding: 2px;
+  border: 2.5px solid #fff;
+  border-radius: 10px 14px 9px 13px / 13px 9px 14px 10px;
+}
+
+/* 초록·노랑 빗금으로 채워요 */
+.progress__fill {
+  display: block;
+  width: 0;
+  height: 100%;
+  border-radius: 6px 9px 5px 8px;
+  background: repeating-linear-gradient(-55deg, #7ed6a6 0 5px, #ffe27a 5px 9px);
+  transition: width 1.2s var(--ease);
+}
+
+.board__percent {
+  min-width: 3.2em;
+  font-size: 0.9rem;
+  text-align: right;
+  color: #d6e4f3;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ───────────── 본문 ───────────── */
+
+.layout {
+  display: grid;
+  gap: 22px;
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 30px 18px 8px;
+}
+
+/* 종이 카드: 굵은 펜 테두리 + 진한 그림자 */
+.card {
+  position: relative;
+  padding: 22px 18px 20px;
+  border: 3px solid var(--line);
+  border-radius: var(--wobble-1);
+  background-color: var(--paper);
+  box-shadow: 5px 6px 0 var(--line);
+}
+
+.card__head {
+  margin-bottom: 16px;
+}
+
+.card__title {
+  display: inline-block;
+  margin-top: 2px;
+  padding: 0 0.12em;
+  font-size: 1.45rem;
+  line-height: 1.3;
+  letter-spacing: -0.04em;
+  background: var(--swash-mint) no-repeat 0 92% / 100% 0.5em;
+}
+
+/* 달 선택 */
+.months {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.months__tab {
+  flex: 1;
+  min-height: 42px;
+  border: 2.5px solid var(--line);
+  border-radius: var(--wobble-pill);
+  background: #fff;
+  color: var(--ink-2);
+  font-size: 1.02rem;
+  cursor: pointer;
+  transition: transform 0.2s var(--ease), background-color 0.2s var(--ease);
+}
+
+.months__tab:hover {
+  color: var(--ink);
+  background-color: var(--blue-soft);
+}
+
+.months__tab[aria-selected="true"] {
+  border: 3px solid var(--line);
+  background-color: var(--blue);
+  box-shadow: 2px 3px 0 var(--line);
+  color: #fff;
+  transform: rotate(-1.5deg);
+}
+
+.months__tab:nth-child(even)[aria-selected="true"] {
+  transform: rotate(1.5deg);
+}
+
+.weekdays,
+.days {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  text-align: center;
+}
+
+.weekdays {
+  margin-bottom: 6px;
+  font-size: 0.84rem;
+  color: var(--ink-3);
+}
+
+.weekdays span:first-child {
+  color: var(--red);
+}
+
+.weekdays span:last-child {
+  color: var(--blue);
+}
+
+.days {
+  row-gap: 6px;
+}
+
+.day {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  border: 0;
+  padding: 0;
+  background: none;
+  color: #b2b8c6;
+  font-size: 1.04rem;
+  font-variant-numeric: tabular-nums;
+}
+
+/* 날짜 동그라미는 굵은 펜으로 그린 그림이에요 */
+.day__num {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: min(92%, 50px);
+  aspect-ratio: 1;
+  background: no-repeat center / 100% 100%;
+  transition: transform 0.18s var(--ease);
+}
+
+.day--memory {
+  cursor: pointer;
+  color: var(--green-ink);
+}
+
+.day--memory .day__num {
+  background-image: var(--day-memory);
+}
+
+.day--memory:hover .day__num {
+  background-image: var(--day-memory-hover);
+  transform: rotate(-6deg);
+}
+
+/* 색만 칠한 날: 누를 수 없으니 반응하지 않아요 */
+.day--marked {
+  cursor: default;
+}
+
+.day--marked:hover .day__num {
+  background-image: var(--day-memory);
+  transform: none;
+}
+
+.day--memory:active .day__num {
+  transform: scale(0.9);
+}
+
+.day--hundred {
+  color: #845a00;
+}
+
+.day--hundred .day__num {
+  background-image: var(--day-hundred);
+}
+
+.day--hundred:hover .day__num {
+  background-image: var(--day-hundred);
+}
+
+.day--selected,
+.day--selected.day--hundred {
+  color: #fff;
+}
+
+.day--selected .day__num,
+.day--selected.day--hundred .day__num,
+.day--selected:hover .day__num {
+  background-image: var(--day-selected);
+  transform: rotate(-4deg) scale(1.06);
+}
+
+.day--today:not(.day--memory) {
+  color: var(--blue-deep);
+}
+
+.day--today:not(.day--memory) .day__num {
+  background-image: var(--day-today);
+}
+
+.day--today.day--memory:not(.day--selected) .day__num {
+  background-image: var(--day-today), var(--day-memory);
+}
+
+.day__tag {
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  padding: 0 6px;
+  border-radius: 8px 10px 7px 11px;
+  background-color: var(--ink);
+  color: #fff;
+  font-size: 0.62rem;
+  line-height: 1.6;
+  letter-spacing: 0;
+  white-space: nowrap;
+  transform: translateX(-50%) rotate(-4deg);
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px 16px;
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 2.5px dashed rgba(43, 53, 83, 0.3);
+  font-size: 0.86rem;
+  color: var(--ink-2);
+}
+
+.legend__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dot {
+  width: 18px;
+  height: 18px;
+  background: no-repeat center / 100% 100%;
+}
+
+.dot--memory {
+  background-image: var(--day-memory);
+}
+
+.dot--hundred {
+  background-image: var(--day-hundred);
+}
+
+.dot--today {
+  background-image: var(--day-today);
+}
+
+/* 그날의 기록 */
+.memory {
+  scroll-margin-top: 16px;
+}
+
+.memory:focus {
+  outline: none;
+}
+
+.memory__empty {
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  gap: 4px;
+  min-height: 190px;
+  padding: 12px 0 8px;
+  border: 2.5px dashed rgba(43, 53, 83, 0.35);
+  border-radius: var(--wobble-2);
+  text-align: center;
+}
+
+.memory__icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 8px;
+  overflow: visible;
+  animation: bob 2.4s var(--ease) infinite;
+}
+
+.memory__hint {
+  font-size: 1.1rem;
+}
+
+.memory__sub {
+  font-size: 0.9rem;
+  color: var(--ink-3);
+}
+
+.memory__body.is-fresh {
+  animation: rise 0.4s var(--ease);
+}
+
+.memory__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  height: 28px;
+  padding: 0 12px;
+  border: 2.5px solid var(--line);
+  border-radius: var(--wobble-pill);
+  font-size: 0.84rem;
+  transform: rotate(-2deg);
+}
+
+.chip--blue {
+  background-color: var(--blue-soft);
+  color: var(--blue-deep);
+}
+
+.chip--gold {
+  background-color: var(--gold-soft);
+  color: #8a5e00;
+}
+
+.memory__day {
+  font-size: 0.9rem;
+  color: var(--ink-3);
+}
+
+.memory__title {
+  margin-top: 12px;
+  font-size: 1.9rem;
+  line-height: 1.45;
+  letter-spacing: -0.04em;
+  word-break: keep-all;
+}
+
+.memory__title span {
+  padding: 0 0.1em;
+  background: var(--swash-gold) no-repeat 0 88% / 100% 0.42em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+/* 폰트에 없는 일본어는 기본 글꼴로 나와서 조금 작고 가볍게 맞춰요 */
+.memory__title .ja {
+  padding: 0;
+  background: none;
+  font-family: "Hiragino Maru Gothic ProN", "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif;
+  font-size: 0.8em;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.memory__note {
+  margin-top: 10px;
+  font-size: 1.04rem;
+  line-height: 1.8;
+  color: var(--ink-2);
+  white-space: pre-line;
+  word-break: keep-all;
+}
+
+.memory__note:empty {
+  display: none;
+}
+
+/* 사진은 스케치북에 붙인 것처럼 살짝 기울여요 */
+.photos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-flow: dense;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.photos--single {
+  grid-template-columns: 1fr;
+}
+
+.photo {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  padding: 6px;
+  border: 3px solid var(--line);
+  border-radius: 14px 18px 12px 16px;
+  background: #fff;
+  box-shadow: 3px 4px 0 var(--line);
+  cursor: zoom-in;
+  transform: rotate(-1.2deg);
+}
+
+.photo:nth-child(even) {
+  transform: rotate(1.4deg);
+}
+
+/* 가로 사진은 잘리지 않게 한 줄을 통째로 써요 */
+.photo--wide {
+  grid-column: 1 / -1;
+  aspect-ratio: 4 / 3;
+}
+
+/* 짝 없이 남은 세로 사진은 가운데에 */
+.photo--lone {
+  grid-column: 1 / -1;
+  justify-self: center;
+  width: calc(50% - 6px);
+}
+
+.photos--single .photo--lone {
+  width: min(100%, 320px);
+}
+
+.photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 9px 12px 8px 11px;
+  object-fit: cover;
+}
+
+/* ── 100일 편지 ── */
+.letter {
+  width: min(100%, 340px);
+  margin: 6px auto 0;
+  /* 편지지가 올라올 자리를 미리 비워 둬요 (너비 기준 %) */
+  padding-top: 50%;
+}
+
+.envelope {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  padding: 0;
+  border: 3px solid var(--line);
+  border-radius: 10px 14px 9px 12px;
+  background: #b6cff3;
+  box-shadow: 5px 6px 0 var(--line);
+  cursor: pointer;
+  perspective: 900px;
+}
+
+.envelope:focus-visible {
+  outline-offset: 6px;
+}
+
+.letter__paper,
+.envelope__front,
+.envelope__flap,
+.envelope__seal {
+  position: absolute;
+}
+
+.letter__paper {
+  left: 5%;
+  right: 5%;
+  bottom: 4%;
+  height: 92%;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 12px 14px 10px;
+  border: 2.5px solid var(--line);
+  border-radius: 8px 10px 7px 9px;
+  background-color: #fffdf6;
+  /* 편지지 줄 */
+  background-image: repeating-linear-gradient(
+    180deg,
+    transparent 0 calc(1.65em - 1px),
+    rgba(61, 127, 230, 0.18) calc(1.65em - 1px) 1.65em
+  );
+  background-position: 0 10px;
+  color: var(--ink);
+  font-size: clamp(0.82rem, 3.7vw, 0.98rem);
+  line-height: 1.65;
+  text-align: left;
+  word-break: keep-all;
+}
+
+.letter__to {
+  color: var(--blue-deep);
+}
+
+.letter__text {
+  flex: 1;
+  margin-top: 2px;
+  white-space: pre-line;
+  font-size: 1.06em;
+}
+
+.letter__credit:empty {
+  display: none;
+}
+
+.letter__credit {
+  font-size: 0.78em;
+  color: var(--ink-3);
+}
+
+.letter__from {
+  align-self: flex-end;
+  color: var(--blue-deep);
+}
+
+.envelope__front {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.envelope__flap {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 56%;
+  z-index: 3;
+  transform-origin: 50% 0;
+  transition: transform 0.55s var(--ease), z-index 0s 0.27s;
+}
+
+.envelope__seal {
+  top: 47%;
+  left: 50%;
+  width: 30px;
+  height: 30px;
+  z-index: 4;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.25s, transform 0.25s;
+}
+
+/* 열리면: 뚜껑이 젖혀지고 → 편지지가 올라와 앞으로 나와요 */
+.letter.is-open .envelope__seal {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.6);
+}
+
+.letter.is-open .envelope__flap {
+  z-index: 0;
+  transform: rotateX(180deg);
+}
+
+.letter.is-open .letter__paper {
+  animation: letter-out 1.1s 0.45s var(--ease) both;
+}
+
+@keyframes letter-out {
+  0% {
+    z-index: 1;
+    transform: translateY(0);
+  }
+  55% {
+    z-index: 1;
+    transform: translateY(-74%);
+  }
+  56% {
+    z-index: 5;
+    transform: translateY(-74%) rotate(-1deg);
+  }
+  100% {
+    z-index: 5;
+    transform: translateY(-52%) rotate(-2deg) scale(1.04);
+  }
+}
+
+.letter__hint {
+  margin-top: 16px;
+  font-size: 0.86rem;
+  text-align: center;
+  color: var(--ink-3);
+}
+
+.pager {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 22px;
+  padding-top: 16px;
+  border-top: 2.5px dashed rgba(43, 53, 83, 0.3);
+}
+
+.pager__count {
+  flex: 1;
+  text-align: center;
+  font-size: 0.92rem;
+  color: var(--ink-3);
+  font-variant-numeric: tabular-nums;
+}
+
+.pager__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 44px;
+  padding: 0 16px;
+  border: 3px solid var(--line);
+  border-radius: var(--wobble-pill);
+  background: #fff;
+  color: var(--ink);
+  font-size: 0.96rem;
+  cursor: pointer;
+  box-shadow: 3px 4px 0 var(--line);
+  transition: transform 0.15s var(--ease), background-color 0.15s var(--ease), box-shadow 0.15s var(--ease);
+}
+
+.pager__btn svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.pager__btn:hover:not(:disabled) {
+  background-color: var(--green-soft);
+  transform: rotate(-2deg);
+}
+
+.pager__btn:active:not(:disabled) {
+  box-shadow: 0 0 0 var(--line);
+  transform: translate(2px, 3px);
+}
+
+.pager__btn:disabled {
+  opacity: 0.3;
+  box-shadow: none;
+  cursor: default;
+}
+
+/* 맨 아래 */
+.footer {
+  position: relative;
+  margin-top: 40px;
+  padding: 58px 16px 34px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 640px;
+  height: 640px;
+  border-radius: 50%;
+  border: 3px solid var(--line);
+  background-color: var(--dirt);
+  transform: translateX(-50%);
+}
+
+.footer__plate,
+.footer__text {
+  position: relative;
+}
+
+.footer__plate {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer__box {
+  width: 30px;
+  height: 52px;
+  border: 3px solid #fff;
+  border-radius: 5px 3px 6px 4px;
+}
+
+.footer__home {
+  width: 28px;
+  height: 28px;
+  background: #fff;
+  clip-path: polygon(0 0, 100% 0, 100% 55%, 50% 100%, 0 55%);
+}
+
+.footer__text {
+  margin-top: 16px;
+  font-size: 0.88rem;
+  letter-spacing: 0.01em;
+  color: #86643f;
+}
+
+/* 사진 크게 보기 */
+.lightbox {
+  max-width: min(94vw, 900px);
+  max-height: 92vh;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  overflow: visible;
+}
+
+.lightbox::backdrop {
+  background: rgba(28, 33, 52, 0.82);
+  backdrop-filter: blur(4px);
+}
+
+.lightbox img {
+  display: block;
+  max-width: 100%;
+  max-height: 80vh;
+  margin: 0 auto;
+  border: 6px solid #fff;
+  border-radius: 14px 18px 12px 16px;
+}
+
+.lightbox__close {
+  display: block;
+  min-height: 44px;
+  margin: 14px auto 0;
+  padding: 0 24px;
+  border: 3px solid var(--line);
+  border-radius: var(--wobble-pill);
+  background: var(--paper);
+  cursor: pointer;
+}
+
+/* ───────────── 움직임 ───────────── */
+
+@keyframes bob {
+  0%,
+  100% {
+    transform: translateY(0) scale(1, 1);
+  }
+  50% {
+    transform: translateY(-4px) scale(0.985, 1.02);
+  }
+}
+
+@keyframes wag {
+  from {
+    transform: rotate(-7deg);
+  }
+  to {
+    transform: rotate(7deg);
+  }
+}
+
+@keyframes toss {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-12deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(14deg);
+  }
+}
+
+@keyframes drift {
+  from {
+    translate: 0 0;
+  }
+  to {
+    translate: 18px 0;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px) rotate(-1deg);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ───────────── 넓은 화면 ───────────── */
+
+@media (min-width: 860px) {
+  .hero__sky {
+    padding-top: 72px;
+  }
+
+  .park {
+    margin-top: 92px;
+  }
+
+  .tower {
+    width: 48px;
+  }
+
+  .tower--left {
+    left: 12%;
+  }
+
+  .tower--right {
+    right: 12%;
+  }
+
+  .park__marker {
+    left: 22%;
+  }
+
+  .cloud--1 {
+    left: 9%;
+  }
+
+  .cloud--2 {
+    right: 11%;
+  }
+
+  .cloud--3 {
+    left: 24%;
+  }
+
+  .buddies {
+    width: 320px;
+    margin-top: -120px;
+  }
+
+  .board {
+    margin-top: 22px;
+  }
+
+  .layout {
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+    align-items: start;
+    gap: 28px;
+    padding-top: 42px;
+  }
+
+  .card {
+    padding: 28px 28px 24px;
+  }
+
+  .calendar {
+    position: sticky;
+    top: 24px;
+  }
+
+  .memory__empty {
+    min-height: 300px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .letter.is-open .letter__paper {
+    z-index: 5;
+    transform: translateY(-52%) rotate(-2deg);
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
