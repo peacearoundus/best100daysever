@@ -154,7 +154,7 @@ window.ANNIVERSARY = {
     },
     {
       date: "2026-09-20",
-      title: "영우짱의 友達たち 그리고 나",
+      title: "영우짱의 토모다찌 그리고 나",
       note: "",
       photos: [
         "photos/0920-1-bread.jpg",
