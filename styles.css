@@ -1,7 +1,14 @@
-/* 그리운 소복희체 (눈누 웹폰트) */
+/* 제목(메인·달력·날짜별)은 그리운 소복희체, 나머지는 온글잎 윤탱체 (눈누 웹폰트) */
 @font-face {
   font-family: "LongingSobokhee";
   src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/2610081753@griun-sobokhee-rg/griun-sobokhee-rg/Griun_Sobokhee-Rg.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "OwnglyphYuntaeng";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/2608211801@font-160/font-160/%EC%98%A8%EA%B8%80%EC%9E%8E%20%EC%9C%A4%ED%83%B1%EC%B2%B4.woff2") format("woff2");
   font-weight: 400;
   font-display: swap;
 }
@@ -32,8 +39,9 @@
   --wall: #2f7a55;
   --dirt: #e9c79f;
 
-  --font: "LongingSobokhee", "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
+  --font: "OwnglyphYuntaeng", "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
   --tracking: -0.03em;
+  --display: "LongingSobokhee", "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
 
   /* 손으로 그린 듯 삐뚤빼뚤한 모서리 */
   --wobble-1: 22px 30px 26px 34px / 30px 22px 34px 24px;
@@ -121,6 +129,13 @@ button:focus-visible {
   font-size: 0.78rem;
   letter-spacing: 0.02em;
   color: var(--ink-3);
+}
+
+/* 메인 제목, 달력 제목, 날짜별 제목만 소복희체 */
+.hero__title,
+#calendar-heading,
+.memory__title {
+  font-family: var(--display);
 }
 
 /* ───────────── 첫 화면 ───────────── */
@@ -788,8 +803,8 @@ button:focus-visible {
 .letter {
   width: min(100%, 340px);
   margin: 6px auto 0;
-  /* 편지지가 올라올 자리를 미리 비워 둬요 (너비 기준 %) */
-  padding-top: 50%;
+  /* 편지지가 올라올 자리를 미리 비워 둬요 (스크립트가 글 길이에 맞춰 계산해요) */
+  padding-top: var(--letter-room, 50%);
 }
 
 .envelope {
@@ -821,8 +836,10 @@ button:focus-visible {
   left: 5%;
   right: 5%;
   bottom: 4%;
-  height: 92%;
+  height: var(--paper-closed, 92%);
   z-index: 1;
+  overflow: hidden;
+  transition: transform 0.3s var(--ease), z-index 0s 0.3s, height 0.45s 0.3s var(--ease);
   display: flex;
   flex-direction: column;
   padding: 12px 14px 10px;
@@ -906,27 +923,12 @@ button:focus-visible {
   transform: rotateX(180deg);
 }
 
+/* 뚜껑이 열린 뒤 편지지가 글 길이만큼 쭉 올라오고, 앞으로 나와요 */
 .letter.is-open .letter__paper {
-  animation: letter-out 1.1s 0.45s var(--ease) both;
-}
-
-@keyframes letter-out {
-  0% {
-    z-index: 1;
-    transform: translateY(0);
-  }
-  55% {
-    z-index: 1;
-    transform: translateY(-74%);
-  }
-  56% {
-    z-index: 5;
-    transform: translateY(-74%) rotate(-1deg);
-  }
-  100% {
-    z-index: 5;
-    transform: translateY(-52%) rotate(-2deg) scale(1.04);
-  }
+  height: var(--paper-full, 92%);
+  z-index: 5;
+  transform: translateY(var(--paper-lift, -25%)) rotate(-1.5deg);
+  transition: height 0.7s 0.45s var(--ease), transform 0.45s 1.15s var(--ease), z-index 0s 1.15s;
 }
 
 .letter__hint {
@@ -1206,10 +1208,6 @@ button:focus-visible {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .letter.is-open .letter__paper {
-    z-index: 5;
-    transform: translateY(-52%) rotate(-2deg);
-  }
 
   *,
   *::before,

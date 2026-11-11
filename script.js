@@ -341,8 +341,26 @@
 
     // 날짜를 누르면 닫힌 봉투가 먼저 보이고, 잠깐 뒤에 스르륵 열려요.
     setLetterOpen(false);
+    sizeLetter();
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(sizeLetter);
     letterTimer = setTimeout(function () { setLetterOpen(true); }, 650);
   }
+
+  // 편지 글이 길면 편지지가 그만큼 늘어나야 해서, 길이를 재서 알려 줘요.
+  function sizeLetter() {
+    if (el.letter.hidden) return;
+    var paper = document.getElementById("letter-paper");
+    var envH = el.envelope.clientHeight;
+    var full = Math.max(paper.scrollHeight + 4, Math.round(envH * 0.92));
+    var lift = -Math.round(envH * 0.25);
+    // 편지지와 젖혀진 뚜껑(봉투 높이의 56%) 중 더 높이 올라오는 쪽만큼 비워 둬요.
+    var room = Math.max(Math.round(full - envH * 0.96 - lift), Math.round(envH * 0.56)) + 14;
+    el.letter.style.setProperty("--paper-full", full + "px");
+    el.letter.style.setProperty("--paper-lift", lift + "px");
+    el.letter.style.setProperty("--letter-room", room + "px");
+  }
+
+  window.addEventListener("resize", sizeLetter);
 
   el.envelope.addEventListener("click", function () {
     clearTimeout(letterTimer);
