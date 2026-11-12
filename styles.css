@@ -1,14 +1,14 @@
-/* 페이지 전체는 그리운 소복희체, 100일 편지만 온글잎 윤탱체 (눈누 웹폰트) */
+/* 제목(메인·달력·날짜별)은 그리운 소복희체(눈누 웹폰트), 나머지는 mr_round */
 @font-face {
-  font-family: "LongingSobokhee";
-  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/2610081753@griun-sobokhee-rg/griun-sobokhee-rg/Griun_Sobokhee-Rg.woff2") format("woff2");
-  font-weight: 400;
+  font-family: "MrRound";
+  src: url("fonts/mr-round-medium.ttf") format("truetype");
+  font-weight: 400 700;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "OwnglyphYuntaeng";
-  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/2608211801@font-160/font-160/%EC%98%A8%EA%B8%80%EC%9E%8E%20%EC%9C%A4%ED%83%B1%EC%B2%B4.woff2") format("woff2");
+  font-family: "LongingSobokhee";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/2610081753@griun-sobokhee-rg/griun-sobokhee-rg/Griun_Sobokhee-Rg.woff2") format("woff2");
   font-weight: 400;
   font-display: swap;
 }
@@ -39,9 +39,9 @@
   --wall: #2f7a55;
   --dirt: #e9c79f;
 
-  --font: "LongingSobokhee", "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
+  --font: "MrRound", "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
   --tracking: -0.03em;
-  --letter-font: "OwnglyphYuntaeng", "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
+  --display: "LongingSobokhee", "MrRound", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
 
   /* 손으로 그린 듯 삐뚤빼뚤한 모서리 */
   --wobble-1: 22px 30px 26px 34px / 30px 22px 34px 24px;
@@ -129,6 +129,13 @@ button:focus-visible {
   font-size: 0.78rem;
   letter-spacing: 0.02em;
   color: var(--ink-3);
+}
+
+/* 메인 제목, 달력 제목, 날짜별 제목만 소복희체 */
+.hero__title,
+#calendar-heading,
+.memory__title {
+  font-family: var(--display);
 }
 
 /* ───────────── 첫 화면 ───────────── */
@@ -847,7 +854,6 @@ button:focus-visible {
   );
   background-position: 0 10px;
   color: var(--ink);
-  font-family: var(--letter-font);
   font-size: clamp(0.82rem, 3.7vw, 0.98rem);
   line-height: 1.65;
   text-align: left;
