@@ -342,7 +342,11 @@
     // 날짜를 누르면 닫힌 봉투가 먼저 보이고, 잠깐 뒤에 스르륵 열려요.
     setLetterOpen(false);
     sizeLetter();
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(sizeLetter);
+    // 편지 폰트가 늦게 도착하면 글 길이가 달라지니, 받은 뒤에 한 번 더 재요.
+    if (document.fonts && document.fonts.load) {
+      var family = getComputedStyle(document.getElementById("letter-paper")).fontFamily;
+      document.fonts.load("16px " + family, letter.text || "가").then(sizeLetter, sizeLetter);
+    }
     letterTimer = setTimeout(function () { setLetterOpen(true); }, 650);
   }
 
